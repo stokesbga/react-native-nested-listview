@@ -81,7 +81,7 @@ export default class NestedListView extends React.PureComponent {
         if (!data) {
             return this.renderErrorMessage('data');
         }
-        return (<NodeView getChildrenName={this.getChildrenName} node={this.state.root} onNodePressed={onNodePressed} generateIds={this.generateIds} level={0} renderNode={renderNode}/>);
+        return (<NodeView getChildrenName={this.getChildrenName} node={this.state.root} onNodePressed={onNodePressed} generateIds={this.generateIds} level={0} renderNode={renderNode} {...this.props} />);
     }
 }
 //# sourceMappingURL=NestedListView.js.map
