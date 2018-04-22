@@ -7,7 +7,7 @@ export default class NodeView extends React.PureComponent {
         super(...arguments);
         this.onNodePressed = () => {
             this.setState({
-                node: Object.assign({}, this.state.node, { opened: (this.props.closeOnPress) ? !this.state.node.opened : this.state.node.opened }),
+                node: Object.assign({}, this.state.node, { opened: (this.props.closeOnPress && this.props.closeOnPress(this.state.node)) ? !this.state.node.opened : this.state.node.opened }),
             });
             if (this.props.onNodePressed) {
                 this.props.onNodePressed(this.state.node);
