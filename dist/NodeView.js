@@ -3,11 +3,11 @@ import isEqual from 'lodash.isequal';
 import * as React from 'react';
 import { FlatList, TouchableWithoutFeedback, View } from 'react-native';
 export default class NodeView extends React.PureComponent {
-    constructor() {
+    constructor(props) {
         super(...arguments);
         this.onNodePressed = () => {
             this.setState({
-                node: Object.assign({}, this.state.node, { opened: (this.props.closeOnPress && this.props.closeOnPress(this.state.node)) ? !this.state.node.opened : this.state.node.opened }),
+                node: Object.assign({}, this.state.node, { opened: (this.state.node[this.props.getChildrenName]) ? !this.state.node.opened : this.state.node.opened }),
             });
             if (this.props.onNodePressed) {
                 this.props.onNodePressed(this.state.node);
